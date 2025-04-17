@@ -1,0 +1,22 @@
+.navbar{
+    background-color:cornsilk;
+    padding: 1%;
+    border-radius: 0%;
+    text-align: center;
+
+  }
+  .navbar a{
+    color: black;
+    font-weight: bolder;
+    font-size: large;
+    text-decoration: none;
+    padding: 5%;
+  }
+  .navbar a:hover{
+    color: chocolate;
+  }
+  .bold{
+    font-weight: bolder;
+    font-size: 400%;
+
+}
