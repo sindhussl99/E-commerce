@@ -20,41 +20,49 @@
     font-size: 400%;
 
 }
+/* Base reset and font */
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #f093fb, #f5576c);
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   overflow: hidden;
 }
 
-/* Login Card with Slide-Up + Pop */
+/* Vibrant background gradient */
+.background {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: backgroundFade 1.5s ease-in-out;
+}
+
+/* Card-style container */
 .login-container {
   background-color: white;
   padding: 2.5rem;
   border-radius: 20px;
   width: 90%;
   max-width: 360px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-  animation: slidePopUp 1s ease-out forwards;
-  transform: translateY(100px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   opacity: 0;
+  transform: translateY(50px);
+  animation: slideUp 1s ease-out forwards;
+  animation-delay: 0.3s;
 }
 
-/* Logo */
+/* Logo styling */
 .logo {
   text-align: center;
-  font-size: 2.2rem;
+  font-size: 2rem;
   margin-bottom: 1.5rem;
   color: #f5576c;
-  animation: fadeIn 1s ease-in 0.5s forwards;
+  animation: fadeIn 1.2s ease-in forwards;
+  animation-delay: 0.6s;
   opacity: 0;
 }
 
-/* Inputs */
+/* Input fields */
 .login-form input {
   width: 100%;
   padding: 0.9rem;
@@ -68,11 +76,11 @@ body {
 .login-form input:focus {
   outline: none;
   border-color: #f5576c;
-  box-shadow: 0 0 10px rgba(245, 87, 108, 0.4);
+  box-shadow: 0 0 8px rgba(245, 87, 108, 0.5);
   transform: scale(1.02);
 }
 
-/* Button */
+/* Button with gradient */
 .login-form button {
   width: 100%;
   padding: 0.9rem;
@@ -82,14 +90,15 @@ body {
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.3s ease;
-  animation: fadeIn 1s ease-in 0.8s forwards;
+  transition: transform 0.25s ease, opacity 0.3s ease;
+  animation: fadeIn 1.2s ease-in forwards;
+  animation-delay: 0.8s;
   opacity: 0;
 }
 
 .login-form button:hover {
-  transform: scale(1.07);
-  opacity: 0.95;
+  transform: scale(1.05);
+  opacity: 0.9;
 }
 
 /* Signup link */
@@ -97,7 +106,8 @@ body {
   text-align: center;
   margin-top: 1rem;
   font-size: 0.95rem;
-  animation: fadeIn 1.2s ease-in 1.2s forwards;
+  animation: fadeIn 1.5s ease-in forwards;
+  animation-delay: 1s;
   opacity: 0;
 }
 
@@ -107,26 +117,24 @@ body {
   font-weight: bold;
 }
 
-/* Slide up with pop */
-@keyframes slidePopUp {
-  0% {
-    transform: translateY(100px) scale(0.95);
-    opacity: 0;
-  }
-  60% {
-    transform: translateY(-20px) scale(1.03);
+/* Animations */
+@keyframes slideUp {
+  to {
     opacity: 1;
-  }
-  80% {
-    transform: translateY(10px) scale(0.98);
-  }
-  100% {
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
 
-/* Simple fade in */
 @keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes backgroundFade {
+  from {
+    opacity: 0;
+  }
   to {
     opacity: 1;
   }
