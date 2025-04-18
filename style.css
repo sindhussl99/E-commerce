@@ -20,64 +20,114 @@
     font-size: 400%;
 
 }
-/* Mobile-first styling */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: #f5f5f7;
   margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  overflow: hidden;
 }
 
+/* Login Card with Slide-Up + Pop */
 .login-container {
   background-color: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  border-radius: 20px;
   width: 90%;
-  max-width: 400px;
+  max-width: 360px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  animation: slidePopUp 1s ease-out forwards;
+  transform: translateY(100px);
+  opacity: 0;
 }
 
+/* Logo */
 .logo {
   text-align: center;
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-bottom: 1.5rem;
-  color: #333;
+  color: #f5576c;
+  animation: fadeIn 1s ease-in 0.5s forwards;
+  opacity: 0;
 }
 
+/* Inputs */
 .login-form input {
   width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  padding: 0.9rem;
+  margin-bottom: 1.2rem;
+  border: 2px solid #f093fb;
+  border-radius: 12px;
   font-size: 1rem;
+  transition: 0.3s ease;
 }
 
+.login-form input:focus {
+  outline: none;
+  border-color: #f5576c;
+  box-shadow: 0 0 10px rgba(245, 87, 108, 0.4);
+  transform: scale(1.02);
+}
+
+/* Button */
 .login-form button {
   width: 100%;
-  padding: 0.75rem;
-  background-color: #0071e3;
+  padding: 0.9rem;
+  background: linear-gradient(135deg, #f5576c, #f093fb);
   color: white;
   font-size: 1rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.3s ease;
+  animation: fadeIn 1s ease-in 0.8s forwards;
+  opacity: 0;
 }
 
 .login-form button:hover {
-  background-color: #005bb5;
+  transform: scale(1.07);
+  opacity: 0.95;
 }
 
+/* Signup link */
 .signup-link {
   text-align: center;
   margin-top: 1rem;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  animation: fadeIn 1.2s ease-in 1.2s forwards;
+  opacity: 0;
 }
 
 .signup-link a {
-  color: #0071e3;
+  color: #f5576c;
   text-decoration: none;
+  font-weight: bold;
+}
+
+/* Slide up with pop */
+@keyframes slidePopUp {
+  0% {
+    transform: translateY(100px) scale(0.95);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(-20px) scale(1.03);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(10px) scale(0.98);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Simple fade in */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
